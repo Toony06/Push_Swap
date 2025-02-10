@@ -6,7 +6,7 @@
 #    By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/10 11:34:23 by toroman           #+#    #+#              #
-#    Updated: 2025/02/10 11:39:10 by toroman          ###   ########.fr        #
+#    Updated: 2025/02/10 13:36:47 by toroman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,12 +44,18 @@ ${NAME}: ${OBJS}
 	@$(progress_bar) & \
 	PROGRESS_PID=$$!; \
 	${MAKE} -C ./utils/ > /dev/null 2>&1; \
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ./utils/utils.a > /dev/null 2>&1; \
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ./utils/utils.a; \
+	STATUS=$$?; \
 	kill $$PROGRESS_PID 2>/dev/null || true; \
-	echo "${GREEN}\nCompilation terminée !${RESET}"
+	if [ $$STATUS -eq 0 ]; then \
+		echo "${GREEN}\nCompilation terminée !${RESET}"; \
+	else \
+		echo "${RED}\nErreur de compilation !${RESET}"; \
+		exit 1; \
+	fi
 
 .c.o:
-	@$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES) > /dev/null 2>&1
+	@$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 clean:
 	@${MAKE} clean -C ./utils/ > /dev/null 2>&1

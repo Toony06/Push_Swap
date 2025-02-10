@@ -6,16 +6,16 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:24:28 by tony              #+#    #+#             */
-/*   Updated: 2024/12/26 09:41:38 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/10 14:23:51 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	signe;
 
 	i = 0;
