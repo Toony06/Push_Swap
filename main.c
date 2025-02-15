@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/15 17:59:44 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/15 22:56:49 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ int	main(int ac, char **av)
 	newtab = ft_strdup("");
 	while (av[i])
 	{
-		newtab = ft_strjoin(newtab, av[i]);
+		newtab = ft_strjoin1(newtab, av[i]);
 		i++;
 	}
 	ft_printf("%s\n", newtab);
-	//tab = ft_split(av[i], 32);
-	//checkint(av);
-	//checkduplicate(av);
 }
 char	*ft_strjoin1(char const *s1, char const *s2)
 {
@@ -53,14 +50,10 @@ char	*ft_strjoin1(char const *s1, char const *s2)
 		result[i] = s1[i];
 		i++;
 	}
-	result[i] = ' ';
+	if (s1[0])
+		result[i++] = 'a';
 	while (s2[j])
-	{
-		result[i] = s2[j];
-		i++;
-		j++;
-	}
-	result[i] = ' ';
-	result[i++] = '\0';
+		result[i++] = s2[j++];
+	result[i] = '\0';
 	return (result);
 }
