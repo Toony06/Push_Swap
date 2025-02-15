@@ -6,28 +6,34 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/15 14:05:45 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/15 17:03:50 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	checkint(char *av)
+void	checkint(char **av)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (av[i])
 	{
-		if (av[i + 1] == '-' || av[i + 1] == '+')
+		j = 0;
+		while(av[i][j])
 		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		if (!ft_isdigit(av[i]) && av[i] != ' ' && av[i] != '-' && av[i] != '+')
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
+			if (av[i][j + 1] == '-' || av[i][j + 1] == '+')
+			{
+				ft_printf("Error\n");
+				exit(EXIT_FAILURE);
+			}
+			if (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && av[i][j] != '-' && av[i][j] != '+')
+			{
+				ft_printf("Error\n");
+				exit(EXIT_FAILURE);
+			}
+			j++;
 		}
 		i++;
 	}
@@ -46,7 +52,7 @@ int	checkduplicate(char **av)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
-				ft_printf("Error\n");
+				ft_printf("Error\n2");
 				return (1);
 			}
 			j++;
