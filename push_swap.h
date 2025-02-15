@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/15 16:51:33 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/15 17:58:29 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 
 void	checkint(char **av);
 int		checkduplicate(char **av);
+char	*ft_strjoin1(char const *s1, char const *s2);
 
 #endif
