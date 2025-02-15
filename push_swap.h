@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/10 16:05:35 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:05:50 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@
 # include "utils/header/ft_printf.h"
 
 void	checkint(char *av);
+int		checkduplicate(char **av);
 #endif
