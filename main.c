@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/15 22:56:49 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/16 16:09:23 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,14 @@
 
 int	main(int ac, char **av)
 {
-	int	i;
-	//char 	**tab;
-	char	*newtab;
+	t_parse	parse;
 
-	i = 1;
-	if (ac == 2 || !av[1][0])
+	if (ac < 2 || !av[1][0])
 	{
-		ft_printf("Error\n");
+		ft_printf("Error its not valid\n");
 		exit(EXIT_FAILURE);
 	}
-	newtab = ft_strdup("");
-	while (av[i])
-	{
-		newtab = ft_strjoin1(newtab, av[i]);
-		i++;
-	}
-	ft_printf("%s\n", newtab);
+	checkall(&parse, av);
 }
 char	*ft_strjoin1(char const *s1, char const *s2)
 {
@@ -51,9 +42,57 @@ char	*ft_strjoin1(char const *s1, char const *s2)
 		i++;
 	}
 	if (s1[0])
-		result[i++] = 'a';
+		result[i++] = ' ';
 	while (s2[j])
 		result[i++] = s2[j++];
 	result[i] = '\0';
 	return (result);
+}
+
+void	checkall(t_parse *parse, char **av)
+{
+	int	i;
+	int	num;
+	
+	i = 1;
+	num = 0;
+	parse->tab = ft_strdup("");
+	while(av[i])
+	{
+		parse->tab = ft_strjoin1(parse->tab, av[i]);
+		i++;
+	}
+	parse->str = ft_split(parse->tab, 32);
+	while (parse->str[num])
+		num++;
+	parse->aatoi = malloc(sizeof(int) * num - 1);
+	i = 0;
+	while(parse->str[i])
+	{
+		checkint(parse->str[i]);
+		parse->aatoi[i] = ft_atoi(parse->str[i]);
+		i++;
+	}
+}
+void checkint(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+'
+				&& str[i] != ' ' && str[i] != '\t')
+		{
+			ft_printf("Error its not digit only\n");
+			exit(EXIT_FAILURE);
+		}
+		if ((str[i] == '-' && !ft_isdigit(str[i + 1])) ||
+			(str[i] == '+' && !ft_isdigit(str[i + 1])))
+		{
+			ft_printf("Error operator not viable\n");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
 }
