@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/16 16:14:18 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:57:43 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	checkall(t_parse *parse, char **av)
 {
 	int	i;
 	int	num;
-	
+
 	i = 1;
 	num = 0;
 	parse->tab = ft_strdup("");
-	while(av[i])
+	while (av[i])
 	{
 		parse->tab = ft_strjoin1(parse->tab, av[i]);
 		i++;
@@ -30,14 +30,16 @@ void	checkall(t_parse *parse, char **av)
 		num++;
 	parse->aatoi = malloc(sizeof(int) * num - 1);
 	i = 0;
-	while(parse->str[i])
+	while (parse->str[i])
 	{
 		checkint(parse->str[i]);
 		parse->aatoi[i] = ft_atoi(parse->str[i]);
 		i++;
 	}
+	checkduplicate(parse);
 }
-void checkint(char *str)
+
+void	checkint(char *str)
 {
 	int	i;
 
@@ -45,16 +47,38 @@ void checkint(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+'
-				&& str[i] != ' ' && str[i] != '\t')
+			&& str[i] != ' ' && str[i] != '\t')
 		{
 			ft_printf("Error its not digit only\n");
 			exit(EXIT_FAILURE);
 		}
-		if ((str[i] == '-' && !ft_isdigit(str[i + 1])) ||
-			(str[i] == '+' && !ft_isdigit(str[i + 1])))
+		if ((str[i] == '-' && !ft_isdigit(str[i + 1]))
+			|| (str[i] == '+' && !ft_isdigit(str[i + 1])))
 		{
 			ft_printf("Error operator not viable\n");
 			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+}
+
+void	checkduplicate(t_parse *parse)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (parse->aatoi[i])
+	{
+		j = 0;
+		while (parse->aatoi[j])
+		{
+			if (parse->aatoi[i] == parse->aatoi[j])
+			{
+				ft_printf("Error doublons is detected\n");
+				exit(EXIT_FAILURE);
+			}
+			j++;
 		}
 		i++;
 	}

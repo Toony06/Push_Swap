@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:24:28 by tony              #+#    #+#             */
-/*   Updated: 2025/02/10 14:23:51 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:42:09 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atoi(const char *nptr)
 {
-	int	i;
+	int		i;
 	long	result;
-	int	signe;
+	int		signe;
 
 	i = 0;
 	result = 0;

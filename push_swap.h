@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/16 15:00:21 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/16 16:49:44 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ typedef struct s_parse
 {
 	char	**str;
 	char	*tab;
-	int	*aatoi;
+	int		*aatoi;
 }	t_parse;
 
 char	*ft_strjoin1(char const *s1, char const *s2);
 void	checkall(t_parse *parse, char **av);
-void 	checkint(char *str);
+void	checkint(char *str);
+void	checkduplicate(t_parse *parse);
 #endif
