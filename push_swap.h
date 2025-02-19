@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/16 16:49:44 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/20 00:48:41 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <limits.h>
 # include "utils/header/libft.h"
 # include "utils/header/ft_printf.h"
 
@@ -30,4 +31,5 @@ char	*ft_strjoin1(char const *s1, char const *s2);
 void	checkall(t_parse *parse, char **av);
 void	checkint(char *str);
 void	checkduplicate(t_parse *parse);
+void	ft_error(char *str);
 #endif

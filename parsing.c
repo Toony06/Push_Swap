@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/16 16:57:43 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/20 00:52:13 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	checkall(t_parse *parse, char **av)
 	{
 		checkint(parse->str[i]);
 		parse->aatoi[i] = ft_atoi(parse->str[i]);
+		if (parse->aatoi[i] > INT_MIN && parse->aatoi[i] < INT_MAX)
+			ft_error("Error limit int");
 		i++;
 	}
 	checkduplicate(parse);
@@ -48,16 +50,10 @@ void	checkint(char *str)
 	{
 		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+'
 			&& str[i] != ' ' && str[i] != '\t')
-		{
-			ft_printf("Error its not digit only\n");
-			exit(EXIT_FAILURE);
-		}
+			ft_error("Error its not digit only");
 		if ((str[i] == '-' && !ft_isdigit(str[i + 1]))
 			|| (str[i] == '+' && !ft_isdigit(str[i + 1])))
-		{
-			ft_printf("Error operator not viable\n");
-			exit(EXIT_FAILURE);
-		}
+			ft_error("Error operator not viable");
 		i++;
 	}
 }
@@ -74,12 +70,15 @@ void	checkduplicate(t_parse *parse)
 		while (parse->aatoi[j])
 		{
 			if (parse->aatoi[i] == parse->aatoi[j])
-			{
-				ft_printf("Error doublons is detected\n");
-				exit(EXIT_FAILURE);
-			}
+				ft_error("Error doublons is detected");
 			j++;
 		}
 		i++;
 	}
+}
+
+void	ft_error(char *str)
+{
+	ft_printf("%s\n", str);
+	exit(EXIT_FAILURE);
 }
