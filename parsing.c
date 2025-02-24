@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/20 00:52:13 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/24 11:58:19 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	checkall(t_parse *parse, char **av)
 	while (parse->str[i])
 	{
 		checkint(parse->str[i]);
-		parse->aatoi[i] = ft_atoi(parse->str[i]);
-		if (parse->aatoi[i] > INT_MIN && parse->aatoi[i] < INT_MAX)
-			ft_error("Error limit int");
+		parse->aatoi[i] = ft_atoi1(parse->str[i]);
 		i++;
 	}
 	checkduplicate(parse);
@@ -66,7 +64,7 @@ void	checkduplicate(t_parse *parse)
 	i = 0;
 	while (parse->aatoi[i])
 	{
-		j = 0;
+		j = i + 1;
 		while (parse->aatoi[j])
 		{
 			if (parse->aatoi[i] == parse->aatoi[j])

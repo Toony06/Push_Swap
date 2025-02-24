@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/20 00:48:41 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/24 11:59:57 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	checkall(t_parse *parse, char **av);
 void	checkint(char *str);
 void	checkduplicate(t_parse *parse);
 void	ft_error(char *str);
+long	ft_atoi1(const char *nptr);
 #endif
