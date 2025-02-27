@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:26:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/27 14:39:46 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:15:06 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	init_node(int value, t_node **stack)
+void	init_node(int value, t_node **stack, t_parse *parse)
 {
 	t_node *new_node;
 
@@ -32,4 +32,5 @@ void	init_node(int value, t_node **stack)
 			temp = temp->next;
 		temp->next = new_node;
 	}
+	free(parse->aatoi);
 }

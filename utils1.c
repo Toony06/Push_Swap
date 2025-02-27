@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/02/27 15:23:42 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:18:40 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-long	ft_atoi1(const char *nptr)
+long	ft_atoi1(char *nptr, t_parse *parse)
 {
 	int		i;
 	long	result;
@@ -36,7 +36,7 @@ long	ft_atoi1(const char *nptr)
 		i++;
 	}
 	if (result * signe < INT_MIN || result * signe > INT_MAX)
-		ft_error("Error limit int");
+		ft_error("Error limit int", parse);
 	return (result * signe);
 }
 
