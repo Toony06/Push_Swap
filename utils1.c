@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/02/24 12:03:12 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/27 15:23:42 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ long	ft_atoi1(const char *nptr)
 	return (result * signe);
 }
 
-char	*ft_strjoin1(char const *s1, char const *s2)
+char	*ft_strjoin1(char *s1, char *s2)
 {
 	int			i;
 	int			j;
@@ -63,5 +63,6 @@ char	*ft_strjoin1(char const *s1, char const *s2)
 	while (s2[j])
 		result[i++] = s2[j++];
 	result[i] = '\0';
+	free (s1);
 	return (result);
 }

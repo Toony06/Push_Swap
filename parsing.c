@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/27 14:02:29 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:29:01 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	checkall(t_parse *parse, char **av)
 		parse->aatoi[i] = ft_atoi1(parse->str[i]);
 		i++;
 	}
+	free (parse->aatoi);
+	free (parse->tab);
 	checkduplicate(parse);
 }
 

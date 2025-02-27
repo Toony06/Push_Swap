@@ -6,7 +6,7 @@
 #    By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/26 09:33:14 by toroman           #+#    #+#              #
-#    Updated: 2025/02/10 09:46:44 by toroman          ###   ########.fr        #
+#    Updated: 2025/02/27 15:14:38 by toroman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJS = ${SRCS:.c=.o}
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 INCLUDE = ./inc
 

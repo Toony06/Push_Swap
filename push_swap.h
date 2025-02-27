@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/27 14:03:35 by toroman          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:13:15 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_node
 	struct s_node *next;
 }	t_node;
 
-char	*ft_strjoin1(char const *s1, char const *s2);
+char	*ft_strjoin1(char *s1, char *s2);
 void	checkall(t_parse *parse, char **av);
 void	checkint(char *str);
 void	checkduplicate(t_parse *parse);
