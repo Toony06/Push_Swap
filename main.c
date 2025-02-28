@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/27 18:01:41 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/28 17:20:58 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 int	main(int ac, char **av)
 {
 	t_parse	parse;
+	t_node	node;
 
-	if (ac < 2 || !av[1][0])
-		ft_error("Error", &parse);
+	if (ac < 2 || (!av[1][0] && ac == 2))
+		ft_error("Error");
 	checkall(&parse, av);
+	init_node(&node, &parse);
+	free(parse.aatoi);
 }

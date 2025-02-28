@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/27 18:15:21 by tony             ###   ########.fr       */
+/*   Updated: 2025/02/28 17:18:46 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_parse
 	char	**str;
 	char	*tab;
 	int		*aatoi;
+	int		num;
 }	t_parse;
 
 typedef struct s_node
@@ -35,10 +36,9 @@ typedef struct s_node
 
 char	*ft_strjoin1(char *s1, char *s2);
 void	checkall(t_parse *parse, char **av);
-void	checkint(char *str, t_parse *parse);
+void	checkint(char *str);
 void	checkduplicate(t_parse *parse);
-void	ft_error(char *str, t_parse *parse);
-long	ft_atoi1(char *nptr, t_parse *parse);
-void	init_node(int value, t_node **stack, t_parse *parse);
-void	ft_free(char **tab);
+void	ft_error(char *str);
+long	ft_atoi1(char *nptr);
+void	init_node(t_node *node, t_parse *parse);
 #endif
