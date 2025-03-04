@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:26:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/28 17:28:43 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/04 14:45:19 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@ void	init_node(t_node *node, t_parse *parse)
 {
 	int	i;
 	t_node	*new_node;
+	t_node	*temp;
 
-	new_node = node;
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return;
+	node->data = parse->aatoi[0];
+	node->next = NULL;
+	temp = node;
 	i = 0;
 	while (parse->aatoi[i])
 	{
+		new_node = malloc(sizeof(t_node));
+		if (!new_node)
+			return;
 		new_node->data = parse->aatoi[i];
+		new_node->next = NULL;
+		temp->next = new_node;
+		temp = new_node;
 		i++;
-		new_node = new_node->next;
 	}
 }
