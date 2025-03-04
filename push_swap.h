@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/02/28 17:18:46 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/04 17:13:52 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_parse
 
 typedef struct s_node
 {
-	int data;
-	struct s_node *next;
+	int				data;
+	struct s_node	*next;
 }	t_node;
 
 char	*ft_strjoin1(char *s1, char *s2);
@@ -41,4 +41,5 @@ void	checkduplicate(t_parse *parse);
 void	ft_error(char *str);
 long	ft_atoi1(char *nptr);
 void	init_node(t_node *node, t_parse *parse);
+void	swap_node(t_node **stack);
 #endif
