@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:26:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:45 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/05 17:03:09 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	init_node(t_node *node, t_parse *parse)
 		i++;
 	}
 	print_stack(node);
-	sb(&node);
+	ra(&node);
 	print_stack(node);
 }

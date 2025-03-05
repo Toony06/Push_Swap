@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:09:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 15:16:20 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/05 17:22:05 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	sa(t_node **stack_a)
 	ft_printf("sa\n");
 }
 
+
 void	sb(t_node **stack_b)
 {
 	swap_node(stack_b);
 	ft_printf("sb\n");
 }
+
 
 void	ss(t_node **stack_a, t_node **stack_b)
 {

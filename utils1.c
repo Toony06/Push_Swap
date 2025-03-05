@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/03/05 15:00:00 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/05 16:50:45 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,13 @@ void	print_stack(t_node *stack)
 		ft_printf("%d\n", (stack)->data);
 		stack = (stack)->next;
 	}
+}
+
+t_node	*find_last_node(t_node **stack)
+{
+	if (*stack == NULL)
+		return (NULL);
+	while ((*stack)->next)
+		*stack = (*stack)->next;
+	return (*stack);
 }
