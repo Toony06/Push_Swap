@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/03/04 14:59:46 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/05 15:00:00 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,13 @@ char	*ft_strjoin1(char *s1, char *s2)
 	result[i] = '\0';
 	free (s1);
 	return (result);
+}
+
+void	print_stack(t_node *stack)
+{
+	while (stack)
+	{
+		ft_printf("%d\n", (stack)->data);
+		stack = (stack)->next;
+	}
 }

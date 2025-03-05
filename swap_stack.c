@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   swap_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 12:26:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 15:13:45 by toroman          ###   ########.fr       */
+/*   Created: 2025/03/05 15:09:15 by toroman           #+#    #+#             */
+/*   Updated: 2025/03/05 15:16:20 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_node(t_node *node, t_parse *parse)
+void	swap_node(t_node **stack)
 {
-	int		i;
-	t_node	*new_node;
 	t_node	*temp;
 
-	node->data = parse->aatoi[0];
-	node->next = NULL;
-	temp = node;
-	i = 1;
-	while (parse->aatoi[i])
-	{
-		new_node = malloc(sizeof(t_node));
-		if (!new_node)
-			return ;
-		new_node->data = parse->aatoi[i];
-		new_node->next = NULL;
-		temp->next = new_node;
-		temp = new_node;
-		i++;
-	}
-	print_stack(node);
-	sb(&node);
-	print_stack(node);
+	temp = (*stack)->next;
+	(*stack)->next = (*stack)->next->next;
+	temp->next = *stack;
+	*stack = temp;
+}
+
+void	sa(t_node **stack_a)
+{
+	swap_node(stack_a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_node **stack_b)
+{
+	swap_node(stack_b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_node **stack_a, t_node **stack_b)
+{
+	swap_node(stack_a);
+	swap_node(stack_b);
+	ft_printf("ss\n");
 }
