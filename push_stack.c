@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 12:26:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/07 15:30:56 by toroman          ###   ########.fr       */
+/*   Created: 2025/03/07 17:22:41 by toroman           #+#    #+#             */
+/*   Updated: 2025/03/07 17:31:12 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_node(t_node *node, t_parse *parse)
+void	push_instruction(t_node **dest, t_node **src)
 {
-	int		i;
-	t_node	*new_node;
-	t_node	*temp;
+	t_node *node;
 
-	node->data = parse->aatoi[0];
-	node->next = NULL;
-	temp = node;
-	i = 1;
-	while (parse->aatoi[i])
-	{
-		new_node = malloc(sizeof(t_node));
-		if (!new_node)
-			return ;
-		new_node->data = parse->aatoi[i];
-		new_node->next = NULL;
-		temp->next = new_node;
-		temp = new_node;
-		i++;
-	}
-	print_stack(node);
-	rra(&node);
-	print_stack(node);
+	if (!*src)
+		return;
+	node = *src;
+	*src = (*src)->next;
+	node->next = *dest;
+	*dest = node;
+}
+
+void	pa(t_node **stack_a, t_node **stack_b)
+{
+	push_instruction(*stack_a, *stack_b);
+	ft_printf("pa\n");
+}
+
+void	pb(t_node **stack_a, t_node **stack_b)
+{
+	push_instruction(*stack_b, *stack_a);
+	ft_printf("pb\n");
 }
