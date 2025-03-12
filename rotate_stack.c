@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:34:05 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/07 15:38:33 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:20:21 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rotate_stack(t_node **stack)
 	t_node	*first_node;
 	t_node	*last_node;
 
+	if (!(*stack))
+		return ;
 	first_node = *stack;
 	last_node = find_last_node(stack);
 	*stack = first_node->next;

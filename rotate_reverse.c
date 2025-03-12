@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:25:53 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/07 16:38:48 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:19:02 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rotate_reverse(t_node **stack)
 	t_node	*last_node;
 	t_node	*before_last;
 
+	if (!(*stack))
+		return ;
 	last_node = *stack;
 	while (last_node->next != NULL)
 		last_node = last_node->next;

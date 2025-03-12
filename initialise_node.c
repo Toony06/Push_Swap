@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/07 17:21:22 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:41:37 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_node(t_node *node, t_parse *parse)
 	int		i;
 	t_node	*new_node;
 	t_node	*temp;
+	t_node	*stack_b = NULL;
 
 	node->data = parse->aatoi[0];
 	node->next = NULL;
@@ -35,7 +36,13 @@ void	init_node(t_node *node, t_parse *parse)
 		temp = new_node;
 		i++;
 	}
+	printf("stack a before push: \n");
 	print_stack(node);
-	rra(&node);
+	printf("stack b before push: \n");
+	print_stack(stack_b);
+	pa(&stack_b, &node);
+	printf("stack a after push: \n");
 	print_stack(node);
+	printf("stack b after push: \n");
+	print_stack(stack_b);
 }

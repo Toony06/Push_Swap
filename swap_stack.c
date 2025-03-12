@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:09:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 17:22:05 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:10:25 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	swap_node(t_node **stack)
 {
 	t_node	*temp;
-
+	if (!(*stack))
+		return ;
 	temp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
 	temp->next = *stack;
