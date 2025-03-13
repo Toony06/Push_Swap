@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/07 17:31:46 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:28:59 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "utils/header/libft.h"
 # include "utils/header/ft_printf.h"
 
@@ -40,7 +41,7 @@ void	checkint(char *str);
 void	checkduplicate(t_parse *parse);
 void	ft_error(char *str);
 long	ft_atoi1(char *nptr);
-void	init_node(t_node *node, t_parse *parse);
+void	init_node(t_node **node, int num);
 void	swap_node(t_node **stack);
 void	print_stack(t_node *stack);
 void	sa(t_node **stack_a);
@@ -54,4 +55,5 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 void	push_instruction(t_node **dest, t_node **src);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
+bool	stack_sorted(t_node *stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:22:41 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/12 14:09:43 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:13:11 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_instruction(t_node **dest, t_node **src)
 {
-	t_node *node;
+	t_node	*node;
 
 	if (!*src)
 		return ;

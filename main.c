@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 14:56:19 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:44:27 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,28 @@
 int	main(int ac, char **av)
 {
 	t_parse	parse;
-	t_node	node;
+	t_node	*node = NULL;
+	t_node	*node1 = NULL;
+	int		i;
+	long	num;
 
+	i = 1;
 	if (ac < 2 || (!av[1][0] && ac == 2))
 		ft_error("Error");
 	checkall(&parse, av);
-	init_node(&node, &parse);
+	while (av[i])
+	{
+		num = ft_atoi1(av[i]);
+		init_node(&node, (int)num);
+		i++;
+	}
+	printf("stack a before push:\n");
+	print_stack(node);
+	printf("stack b before push:\n");
+	print_stack(node1);
+	pb(&node, &node1);
+	printf("stack a after push:\n");
+	print_stack(node);
+	printf("stack b before push:\n");
+	print_stack(node1);
 }

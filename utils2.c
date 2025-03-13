@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialise_node.c                                  :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/13 21:35:56 by toroman          ###   ########.fr       */
+/*   Created: 2025/03/13 15:34:09 by toroman           #+#    #+#             */
+/*   Updated: 2025/03/13 16:33:16 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_node(t_node **node, int num)
+bool	stack_sorted(t_node *stack)
 {
-	t_node	*new;
-	t_node	*tmp;
-	//t_node	*stack_b = NULL;
-	
-	new = malloc(sizeof(t_node));
-	if (!new)
+	if (!stack)
 		return ;
-	new->next = NULL;
-	new->data = num;
-	if (*node == NULL)
-		*node = new;
-	else
+	while (stack->next)
 	{
-		tmp = *node;
-		while(tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
+		if (stack->data > stack->next->data)
+			return (true);
+		stack = stack->next;
 	}
+	return (true);
 }

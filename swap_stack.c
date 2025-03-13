@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:09:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/12 14:10:25 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:31:49 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	swap_node(t_node **stack)
 {
 	t_node	*temp;
-	if (!(*stack))
+
+	if (!(*stack)->next)
 		return ;
 	temp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
@@ -29,13 +30,11 @@ void	sa(t_node **stack_a)
 	ft_printf("sa\n");
 }
 
-
 void	sb(t_node **stack_b)
 {
 	swap_node(stack_b);
 	ft_printf("sb\n");
 }
-
 
 void	ss(t_node **stack_a, t_node **stack_b)
 {
