@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialise_node.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 14:20:23 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/21 23:50:53 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	init_node_a(t_node *stack_a, t_node *stack_b)
 	current_index(stack_a);
 	current_index(stack_b);
 	set_target_a(stack_a, stack_b);
+	cost_analysis_a(stack_a, stack_b);
 	set_cheapest(stack_a);
 }

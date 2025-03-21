@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:03:03 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 16:50:44 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/22 00:17:21 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	move_b_to_a(t_node **stack_a, t_node **stack_b)
 
 void	min_on_top(t_node **stack)
 {
-	while ((*stack)->data != find_min(stack)->data)
+	while ((*stack)->data != find_min(*stack)->data)
 	{
-		if (find_min(stack)->above_median)
+		if (find_min(*stack)->above_median)
 			ra(stack);
 		else
 			rra(stack);
@@ -79,9 +79,9 @@ void	set_target_b(t_node *stack_a, t_node *stack_b)
 			current_a = current_a->next;
 		}
 		if (best_match_index == LONG_MAX)
-			stack_b->target_node = find_min(&stack_a);
+			stack_b->target_node = find_min(stack_a);
 		else
-				stack_b->target_node = target_node;
-			stack_b = stack_b->next;
+			stack_b->target_node = target_node;
+		stack_b = stack_b->next;
 	}
 }

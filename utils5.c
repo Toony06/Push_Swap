@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:30:26 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 16:41:59 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/22 00:15:38 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ void	init_node_b(t_node *stack_a, t_node *stack_b)
 	set_target_b(stack_a, stack_b);
 }
 
-t_node	*find_min(t_node **stack)
+t_node	*find_min(t_node *stack)
 {
-	t_node *current;
-	t_node *min;
+	long	min;
+	t_node	*mine_node;
 
-	current = *stack;
-	min = *stack;
-	if (*stack == NULL)
+	if (!stack)
 		return (NULL);
-	while (current)
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (min->data > current->data)
-			min = current;
-		current = current->next;
+		if ((stack)->data < min)
+		{
+			min = (stack)->data;
+			mine_node = stack;
+		}
+		stack = (stack)->next;
 	}
-	return (min);
+	return (mine_node);
 }
 
 void	rev_rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_node)

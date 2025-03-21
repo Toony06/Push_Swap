@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:17:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 15:52:42 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/21 23:54:28 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	set_target_a(t_node *stack_a, t_node *stack_b)
 			current_b = current_b->next;
 		}
 		if (best_match_index == LONG_MIN)
-		stack_a->target_node = find_max(&stack_b);
+			stack_a->target_node = find_max(&stack_b);
 		else
 			stack_a->target_node = target_node;
 		stack_a = stack_a->next;

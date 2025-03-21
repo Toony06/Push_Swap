@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 17:32:06 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/22 00:15:21 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ void	prep_for_push(t_node **stack, t_node *top_node, char stack_name);
 void	set_target_b(t_node *stack_a, t_node *stack_b);
 void	set_target_a(t_node *stack_a, t_node *stack_b);
 void	init_node_b(t_node *stack_a, t_node *stack_b);
-t_node	*find_min(t_node **stack);
+t_node	*find_min(t_node *stack);
 void	main2(t_node *node, t_node *node1);
 #endif
