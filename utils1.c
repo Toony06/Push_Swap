@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/03/05 16:50:45 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/21 12:19:40 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,16 @@ t_node	*find_last_node(t_node **stack)
 	while ((*stack)->next)
 		*stack = (*stack)->next;
 	return (*stack);
+}
+
+void	free_stack(t_node *stack)
+{
+	t_node *temp;
+
+	while (stack)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
+	}
 }

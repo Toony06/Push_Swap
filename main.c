@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/13 21:44:27 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/21 17:00:20 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,18 @@ int	main(int ac, char **av)
 	print_stack(node);
 	printf("stack b before push:\n");
 	print_stack(node1);
+}
+
+void	main2(t_node *node, t_node *node1)
+{
+	if (!stack_sorted(node))
+	{
+		if (stack_len(node) == 2)
+			sa(&node);
+		else if (stack_len(node) == 3)
+			sort_three(&node);
+		else
+			sort_stacks(&node, &node1);
+	}
+	free_stack(node);
 }
