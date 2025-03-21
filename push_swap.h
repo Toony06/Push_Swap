@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 16:48:53 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/21 17:32:06 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,5 @@ void	set_target_b(t_node *stack_a, t_node *stack_b);
 void	set_target_a(t_node *stack_a, t_node *stack_b);
 void	init_node_b(t_node *stack_a, t_node *stack_b);
 t_node	*find_min(t_node **stack);
+void	main2(t_node *node, t_node *node1);
 #endif
