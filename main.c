@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/24 17:49:39 by tony             ###   ########.fr       */
+/*   Updated: 2025/03/24 18:37:29 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ int	main(int ac, char **av)
 		init_node(&node, (int)num);
 		i++;
 	}
-	// main2(node, node1);
-	printf("stack a before push:\n");
-	print_stack(node);
-	printf("stack b before push:\n");
-	print_stack(node1);
-	pb(&node, &node1);
-	printf("stack a after push:\n");
-	print_stack(node);
-	printf("stack b before push:\n");
-	print_stack(node1);
+	main2(node, node1);
+	// printf("stack a before push:\n");
+	// print_stack(node);
+	// printf("stack b before push:\n");
+	// print_stack(node1);
+	// pb(&node, &node1);
+	// printf("stack a after push:\n");
+	// print_stack(node);
+	// printf("stack b before push:\n");
+	// print_stack(node1);
 }
 
 void	main2(t_node *node, t_node *node1)
