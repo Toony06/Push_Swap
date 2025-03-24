@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:30:26 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/22 00:15:38 by tony             ###   ########.fr       */
+/*   Updated: 2025/03/22 01:51:57 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ void	init_node_b(t_node *stack_a, t_node *stack_b)
 
 t_node	*find_min(t_node *stack)
 {
-	long	min;
-	t_node	*mine_node;
+	t_node	*smallest_node;
+	t_node	*current_node;
 
-	if (!stack)
-		return (NULL);
-	min = LONG_MAX;
-	while (stack)
+	smallest_node = stack;
+	current_node = stack;
+	while (current_node)
 	{
-		if ((stack)->data < min)
-		{
-			min = (stack)->data;
-			mine_node = stack;
-		}
-		stack = (stack)->next;
+		if (smallest_node->data > current_node->data)
+			smallest_node = current_node;
+		current_node = current_node->next;
 	}
-	return (mine_node);
+	return (smallest_node);
 }
 
 void	rev_rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_node)

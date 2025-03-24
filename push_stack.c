@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:22:41 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/12 15:13:11 by toroman          ###   ########.fr       */
+/*   Updated: 2025/03/23 22:47:51 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,23 @@ void	pa(t_node **stack_a, t_node **stack_b)
 	ft_printf("pa\n");
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+// void	pb(t_node **stack_a, t_node **stack_b)
+// {
+// 	push_instruction(stack_b, stack_a);
+// 	ft_printf("pb\n");
+// }
+
+void pb(t_node **stack_a, t_node **stack_b)
 {
-	push_instruction(stack_b, stack_a);
-	ft_printf("pb\n");
+    printf("Avant pb:\n");
+    print_stack(*stack_a);
+    print_stack(*stack_b);
+
+    push_instruction(stack_b, stack_a);
+
+    printf("Après pb:\n");
+    print_stack(*stack_a);
+    print_stack(*stack_b);
+
+    ft_printf("pb\n");
 }

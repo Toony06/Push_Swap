@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:17:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/21 23:54:28 by tony             ###   ########.fr       */
+/*   Updated: 2025/03/23 22:37:45 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void	move_a_to_b(t_node **stack_a, t_node **stack_b)
 	t_node	*cheapest_node;
 
 	cheapest_node = get_cheapest(*stack_a);
+	if (!cheapest_node)
+		return ;
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(stack_a, stack_b, cheapest_node);
 	else if (!(cheapest_node->above_median)

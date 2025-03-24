@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:34:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/22 00:01:52 by tony             ###   ########.fr       */
+/*   Updated: 2025/03/23 22:25:41 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	stack_sorted(t_node *stack)
 {
 	if (!stack)
-		return (0);
+		return (1);
 	while (stack->next)
 	{
 		if (stack->data > stack->next->data)
@@ -30,8 +30,6 @@ int	stack_len(t_node *stack)
 	int	size;
 
 	size = 0;
-	if (!stack)
-		return (0);
 	while (stack)
 	{
 		stack = stack->next;
