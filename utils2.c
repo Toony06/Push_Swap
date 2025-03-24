@@ -6,7 +6,7 @@
 /*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:34:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/23 22:25:41 by tony             ###   ########.fr       */
+/*   Updated: 2025/03/24 18:34:17 by tony             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	sort_stacks(t_node **stack_a, t_node **stack_b)
 	sort_three(stack_a);
 	while (*stack_b)
 	{
+		printf("fares\n");
 		init_node_b(*stack_a, *stack_b);
 		move_b_to_a(stack_a, stack_b);
 	}
