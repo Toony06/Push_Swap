@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:34:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/24 18:44:32 by tony             ###   ########.fr       */
+/*   Updated: 2025/04/02 14:54:23 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	sort_stacks(t_node **stack_a, t_node **stack_b)
 	sort_three(stack_a);
 	while (*stack_b)
 	{
-		printf("fares le boss du codage\n");
 		init_node_b(*stack_a, *stack_b);
 		move_b_to_a(stack_a, stack_b);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialise_node.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/23 23:31:16 by tony             ###   ########.fr       */
+/*   Updated: 2025/04/02 15:05:32 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_node(t_node **node, int num)
 		return ;
 	new->next = NULL;
 	new->data = num;
+	new->cheapest = 0;
 	if (*node == NULL)
 		*node = new;
 	else
