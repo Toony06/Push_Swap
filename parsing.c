@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/05 14:59:44 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/02 18:55:51 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ void	checkall(t_parse *parse, char **av)
 	i = 0;
 	while (parse->str[i])
 	{
-		checkint(parse->str[i]);
 		parse->aatoi[i] = ft_atoi1(parse->str[i]);
-		free (parse->str[i]);
 		i++;
 	}
 	free (parse->str);

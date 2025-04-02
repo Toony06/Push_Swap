@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:17:15 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/23 22:37:45 by tony             ###   ########.fr       */
+/*   Updated: 2025/04/02 17:49:51 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,16 @@ void	move_a_to_b(t_node **stack_a, t_node **stack_b)
 	t_node	*cheapest_node;
 
 	cheapest_node = get_cheapest(*stack_a);
-	if (!cheapest_node)
-		return ;
-	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
-		rotate_both(stack_a, stack_b, cheapest_node);
-	else if (!(cheapest_node->above_median)
+	if (cheapest_node->target_node != NULL)
+	{
+		if (cheapest_node->above_median
+			&& cheapest_node->target_node->above_median)
+			rotate_both(stack_a, stack_b, cheapest_node);
+		else if (!(cheapest_node->above_median)
 			&& !(cheapest_node->target_node->above_median))
-		rev_rotate_both(stack_a, stack_b, cheapest_node);
-	prep_for_push(stack_a, cheapest_node, 'a');
-	prep_for_push(stack_b, cheapest_node->target_node, 'b');
-	pb(stack_b, stack_a);
+			rev_rotate_both(stack_a, stack_b, cheapest_node);
+		prep_for_push(stack_a, cheapest_node, 'a');
+		prep_for_push(stack_b, cheapest_node->target_node, 'b');
+		pb(stack_a, stack_b);
+	}
 }

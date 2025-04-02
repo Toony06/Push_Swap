@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tony <tony@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/24 18:37:29 by tony             ###   ########.fr       */
+/*   Updated: 2025/04/02 19:10:44 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	main(int ac, char **av)
 	int		i;
 	long	num;
 
-	i = 1;
+	i = 0;
 	if (ac < 2 || (!av[1][0] && ac == 2))
 		ft_error("Error");
 	checkall(&parse, av);
-	while (av[i])
+	while (i < parse.num)
 	{
-		num = ft_atoi1(av[i]);
+		num = parse.aatoi[i];
 		init_node(&node, (int)num);
 		i++;
 	}
@@ -41,7 +41,16 @@ int	main(int ac, char **av)
 	// printf("stack b before push:\n");
 	// print_stack(node1);
 }
-
+void	issorted(t_node* a){
+	while (a->next != NULL){
+		if (a->data > a->next->data){
+			ft_printf("not sorted\n");
+			return ;
+		}
+		a = a->next;
+	}
+	ft_printf("is sorted\n");
+}
 void	main2(t_node *node, t_node *node1)
 { 
 	if (!stack_sorted(node))
@@ -53,5 +62,7 @@ void	main2(t_node *node, t_node *node1)
 		else
 			sort_stacks(&node, &node1);
 	}
+	//issorted(node);
+	//print_stack(node);
 	free_stack(node);
 }
