@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/03/21 12:19:40 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/02 19:44:05 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin1(char *s1, char *s2)
 	j = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (0);
-	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (result == NULL)
 		return (0);
 	while (s1[i])
@@ -62,7 +62,7 @@ char	*ft_strjoin1(char *s1, char *s2)
 	while (s2[j])
 		result[i++] = s2[j++];
 	result[i] = '\0';
-	free (s1);
+	free(s1);
 	return (result);
 }
 
