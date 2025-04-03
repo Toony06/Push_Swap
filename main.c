@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/03 11:04:23 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 14:53:10 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av)
 		i++;
 	}
 	main2(node, node1);
-	free_arg(parse.str);
 	free(parse.aatoi);
 }
 

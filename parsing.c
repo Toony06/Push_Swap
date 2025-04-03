@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/02 18:55:51 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 14:54:47 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ void	checkall(t_parse *parse, char **av)
 	while (parse->str[i])
 	{
 		parse->aatoi[i] = ft_atoi1(parse->str[i]);
+		checkint(parse->str[i]);
 		i++;
 	}
-	free (parse->str);
 	checkduplicate(parse);
+	free_arg(parse->str);
 }
 
 void	checkint(char *str)
@@ -62,10 +63,10 @@ void	checkduplicate(t_parse *parse)
 	int	j;
 
 	i = 0;
-	while (parse->aatoi[i])
+	while (i < parse->num)
 	{
 		j = i + 1;
-		while (parse->aatoi[j])
+		while (j < parse->num)
 		{
 			if (parse->aatoi[i] == parse->aatoi[j])
 				ft_error("Error doublons is detected");

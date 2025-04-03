@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/03 11:12:22 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 14:49:41 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	free_arg(char **arg)
 	while (arg[i])
 	{
 		free(arg[i]);
+		arg[i] = NULL;
 		i++;
 	}
 	free(arg);
+	arg = NULL;
 }
