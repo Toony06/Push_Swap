@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/03 15:36:00 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 15:40:07 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	checkall(t_parse *parse, char **av);
 void	checkint(char *str, t_parse *parse);
 void	checkduplicate(t_parse *parse);
 void	ft_error(char *str);
-long	ft_atoi1(char *nptr);
+long	ft_atoi1(char *nptr, t_parse *parse);
 void	init_node(t_node **node, int num);
 void	swap_node(t_node **stack);
 void	print_stack(t_node *stack);

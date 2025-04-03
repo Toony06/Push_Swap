@@ -6,13 +6,13 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/04/03 13:15:29 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 15:39:56 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi1(char *nptr)
+long	ft_atoi1(char *nptr, t_parse *parse)
 {
 	int		i;
 	long	result;
@@ -35,7 +35,7 @@ long	ft_atoi1(char *nptr)
 		i++;
 	}
 	if (result * signe < INT_MIN || result * signe > INT_MAX)
-		ft_error("Error limit int");
+		ft_error_free("Error limit int", parse);
 	return (result * signe);
 }
 
