@@ -6,11 +6,11 @@
 #    By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/10 11:34:23 by toroman           #+#    #+#              #
-#    Updated: 2025/04/02 19:41:25 by toroman          ###   ########.fr        #
+#    Updated: 2025/04/03 10:48:03 by toroman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c parsing.c utils1.c initialise_node.c swap_stack.c rotate_stack.c rotate_reverse.c push_stack.c utils2.c utils3.c utils4.c utils5.c
+SRCS = main.c parsing.c utils1.c initialise_node.c big_sort.c little_sort.c swap_stack.c rotate_stack.c rotate_reverse.c push_stack.c utils2.c utils3.c
 OBJS = ${SRCS:.c=.o}
 NAME = push_swap
 CC = gcc

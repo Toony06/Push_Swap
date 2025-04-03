@@ -5,90 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:34:09 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/02 14:54:23 by toroman          ###   ########.fr       */
+/*   Created: 2025/04/03 10:42:58 by toroman           #+#    #+#             */
+/*   Updated: 2025/04/03 10:55:19 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	stack_sorted(t_node *stack)
+void	current_index(t_node *stack)
 {
+	int	i;
+	int	median;
+
+	i = 0;
 	if (!stack)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->data > stack->next->data)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
-}
-
-int	stack_len(t_node *stack)
-{
-	int	size;
-
-	size = 0;
+		return ;
+	median = stack_len(stack) / 2;
 	while (stack)
 	{
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
 		stack = stack->next;
-		size++;
+		i++;
 	}
-	return (size);
 }
 
-t_node	*find_max(t_node **stack)
+void	set_target_a(t_node *stack_a, t_node *stack_b)
 {
-	t_node *current;
-	t_node *biggest;
+	t_node	*current_b;
+	t_node	*target_node;
+	long	best_match_index;
 
-	current = *stack;
-	biggest = *stack;
-	if (*stack == NULL)
-		return (NULL);
-	while (current)
+	while (stack_a)
 	{
-		if (biggest->data < current->data)
-			biggest = current;
-		current = current->next;
+		best_match_index = LONG_MIN;
+		current_b = stack_b;
+		while (current_b)
+		{
+			if (current_b->data < stack_a->data
+				&& current_b->data > best_match_index)
+			{
+				best_match_index = current_b->data;
+				target_node = current_b;
+			}
+			current_b = current_b->next;
+		}
+		if (best_match_index == LONG_MIN)
+			stack_a->target_node = find_max(&stack_b);
+		else
+			stack_a->target_node = target_node;
+		stack_a = stack_a->next;
 	}
-	return (biggest);
 }
 
-void	sort_three(t_node **stack)
-{
-	t_node	*biggest_node;
-
-	biggest_node = find_max(stack);
-	if (biggest_node == *stack)
-		ra(stack);
-	else if ((*stack)->next == biggest_node)
-		rra(stack);
-	if ((*stack)->data > (*stack)->next->data)
-		sa(stack);
-}
-
-void	sort_stacks(t_node **stack_a, t_node **stack_b)
+void	cost_analysis_a(t_node *stack_a, t_node *stack_b)
 {
 	int	len_a;
+	int	len_b;
 
-	len_a = stack_len(*stack_a);
-	if (len_a-- > 3 && !stack_sorted(*stack_a))
-		pb(stack_a, stack_b);
-	if (len_a-- > 3 && !stack_sorted(*stack_a))
-		pb(stack_a, stack_b);
-	while (len_a-- > 3 && !stack_sorted(*stack_a))
+	len_a = stack_len(stack_a);
+	len_b = stack_len(stack_b);
+	while (stack_a)
 	{
-		init_node_a(*stack_a, *stack_b);
-		move_a_to_b(stack_a, stack_b);
+		stack_a->push_cost = stack_a->index;
+		if (!(stack_a->above_median))
+			stack_a->push_cost = len_a - (stack_a->index);
+		if (stack_a->target_node->above_median)
+			stack_a->push_cost += stack_a->target_node->index;
+		else
+			stack_a->push_cost += len_b - (stack_a->target_node->index);
+		stack_a = stack_a->next;
 	}
-	sort_three(stack_a);
-	while (*stack_b)
+}
+
+void	set_cheapest(t_node *stack)
+{
+	long		cheapest_value;
+	t_node		*cheapest_node;
+
+	if (!stack)
+		return ;
+	cheapest_value = LONG_MAX;
+	while (stack)
 	{
-		init_node_b(*stack_a, *stack_b);
-		move_b_to_a(stack_a, stack_b);
+		if (stack->push_cost < cheapest_value)
+		{
+			cheapest_value = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
 	}
-	current_index(*stack_a);
-	min_on_top(stack_a);
+	cheapest_node->cheapest = true;
 }

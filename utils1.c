@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:53:24 by tony              #+#    #+#             */
-/*   Updated: 2025/04/02 19:44:05 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 10:54:25 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,9 @@ void	print_stack(t_node *stack)
 	}
 }
 
-t_node	*find_last_node(t_node **stack)
-{
-	if (*stack == NULL)
-		return (NULL);
-	while ((*stack)->next)
-		*stack = (*stack)->next;
-	return (*stack);
-}
-
 void	free_stack(t_node *stack)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	while (stack)
 	{
@@ -94,4 +85,20 @@ void	free_stack(t_node *stack)
 		free(stack);
 		stack = temp;
 	}
+}
+
+t_node	*find_min(t_node *stack)
+{
+	t_node	*smallest_node;
+	t_node	*current_node;
+
+	smallest_node = stack;
+	current_node = stack;
+	while (current_node)
+	{
+		if (smallest_node->data > current_node->data)
+			smallest_node = current_node;
+		current_node = current_node->next;
+	}
+	return (smallest_node);
 }

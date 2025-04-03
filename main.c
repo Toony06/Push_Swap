@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:22:30 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/02 19:37:40 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 11:04:23 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	main(int ac, char **av)
 {
 	t_parse	parse;
-	t_node	*node = NULL;
-	t_node	*node1 = NULL;
+	t_node	*node;
+	t_node	*node1;
 	int		i;
 	long	num;
 
+	node = NULL;
+	node1 = NULL;
 	i = 0;
 	if (ac < 2 || (!av[1][0] && ac == 2))
 		ft_error("Error");
@@ -31,19 +33,12 @@ int	main(int ac, char **av)
 		i++;
 	}
 	main2(node, node1);
-	// printf("stack a before push:\n");
-	// print_stack(node);
-	// printf("stack b before push:\n");
-	// print_stack(node1);
-	// pb(&node, &node1);
-	// printf("stack a after push:\n");
-	// print_stack(node);
-	// printf("stack b before push:\n");
-	// print_stack(node1);
+	free_arg(parse.str);
+	free(parse.aatoi);
 }
 
 void	main2(t_node *node, t_node *node1)
-{ 
+{
 	if (!stack_sorted(node))
 	{
 		if (stack_len(node) == 2)
@@ -53,6 +48,5 @@ void	main2(t_node *node, t_node *node1)
 		else
 			sort_stacks(&node, &node1);
 	}
-	//print_stack(node);
 	free_stack(node);
 }

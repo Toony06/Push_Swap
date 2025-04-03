@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/02 18:54:08 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 11:03:49 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	push_instruction(t_node **dest, t_node **src);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
 bool	stack_sorted(t_node *stack);
+void	free_arg(char **arg);
 int		stack_len(t_node *stack);
 t_node	*find_max(t_node **stack);
 void	free_stack(t_node *stack);
@@ -79,7 +80,8 @@ t_node	*get_cheapest(t_node *stack);
 void	move_a_to_b(t_node **stack_a, t_node **stack_b);
 void	move_b_to_a(t_node **stack_a, t_node **stack_b);
 void	min_on_top(t_node **stack);
-void	rev_rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_node);
+void	rev_rotate_both(t_node **stack_a, t_node **stack_b,
+			t_node *cheapest_node);
 void	rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_node);
 void	prep_for_push(t_node **stack, t_node *top_node, char stack_name);
 void	set_target_b(t_node *stack_a, t_node *stack_b);

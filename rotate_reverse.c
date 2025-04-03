@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:25:53 by toroman           #+#    #+#             */
-/*   Updated: 2025/03/12 14:19:02 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 10:53:43 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,14 @@ void	rrr(t_node **stack_a, t_node **stack_b)
 	rotate_reverse(stack_a);
 	rotate_reverse(stack_b);
 	ft_printf("rrr\n");
+}
+
+void	rev_rotate_both(t_node **stack_a, t_node **stack_b,
+			t_node *cheapest_node)
+{
+	while (*stack_b != cheapest_node->target_node
+		&& *stack_a != cheapest_node)
+		rrr(stack_a, stack_b);
+	current_index(*stack_a);
+	current_index(*stack_b);
 }

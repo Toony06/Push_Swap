@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:21:19 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/02 15:05:32 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 11:12:22 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_node(t_node **node, int num)
 {
 	t_node	*new;
 	t_node	*tmp;
+
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
@@ -27,7 +28,7 @@ void	init_node(t_node **node, int num)
 	else
 	{
 		tmp = *node;
-		while(tmp->next)
+		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = new;
 	}
@@ -40,4 +41,24 @@ void	init_node_a(t_node *stack_a, t_node *stack_b)
 	set_target_a(stack_a, stack_b);
 	cost_analysis_a(stack_a, stack_b);
 	set_cheapest(stack_a);
+}
+
+void	init_node_b(t_node *stack_a, t_node *stack_b)
+{
+	current_index(stack_a);
+	current_index(stack_b);
+	set_target_b(stack_a, stack_b);
+}
+
+void	free_arg(char **arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		free(arg[i]);
+		i++;
+	}
+	free(arg);
 }
