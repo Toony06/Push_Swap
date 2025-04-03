@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:11:38 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/03 14:46:56 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 15:36:00 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_node
 
 char	*ft_strjoin1(char *s1, char *s2);
 void	checkall(t_parse *parse, char **av);
-void	checkint(char *str);
+void	checkint(char *str, t_parse *parse);
 void	checkduplicate(t_parse *parse);
 void	ft_error(char *str);
 long	ft_atoi1(char *nptr);
@@ -89,4 +89,5 @@ void	set_target_a(t_node *stack_a, t_node *stack_b);
 void	init_node_b(t_node *stack_a, t_node *stack_b);
 t_node	*find_min(t_node *stack);
 void	main2(t_node *node, t_node *node1);
+void	ft_error_free(char *str, t_parse *parse);
 #endif

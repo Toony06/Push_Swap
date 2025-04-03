@@ -6,7 +6,7 @@
 /*   By: toroman <toroman@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:08:39 by toroman           #+#    #+#             */
-/*   Updated: 2025/04/03 14:54:47 by toroman          ###   ########.fr       */
+/*   Updated: 2025/04/03 15:36:20 by toroman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	checkall(t_parse *parse, char **av)
 	while (parse->str[i])
 	{
 		parse->aatoi[i] = ft_atoi1(parse->str[i]);
-		checkint(parse->str[i]);
+		checkint(parse->str[i], parse);
 		i++;
 	}
 	checkduplicate(parse);
 	free_arg(parse->str);
 }
 
-void	checkint(char *str)
+void	checkint(char *str, t_parse *parse)
 {
 	int	i;
 
@@ -49,10 +49,10 @@ void	checkint(char *str)
 	{
 		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+'
 			&& str[i] != ' ' && str[i] != '\t')
-			ft_error("Error its not digit only");
+			ft_error_free("Error its not digit only", parse);
 		if ((str[i] == '-' && !ft_isdigit(str[i + 1]))
 			|| (str[i] == '+' && !ft_isdigit(str[i + 1])))
-			ft_error("Error operator not viable");
+			ft_error_free("Error operator not viable", parse);
 		i++;
 	}
 }
@@ -69,7 +69,7 @@ void	checkduplicate(t_parse *parse)
 		while (j < parse->num)
 		{
 			if (parse->aatoi[i] == parse->aatoi[j])
-				ft_error("Error doublons is detected");
+				ft_error_free("Error doublons is detected", parse);
 			j++;
 		}
 		i++;
@@ -79,5 +79,17 @@ void	checkduplicate(t_parse *parse)
 void	ft_error(char *str)
 {
 	ft_printf(str);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_error_free(char *str, t_parse *parse)
+{
+	ft_printf("%s\n", str);
+	// if (push->res)
+	// 	free(push->res);
+	if (parse->str)
+		free_arg(parse->str);
+	if (parse->aatoi)
+		free(parse->aatoi);
 	exit(EXIT_FAILURE);
 }
